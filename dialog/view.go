@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/awesome-gocui/gocui"
+	"github.com/jroimartin/gocui"
 )
 
 var (
@@ -16,7 +16,7 @@ func generateView(g *gocui.Gui, desc string, fill string, coords []int, editable
 	if StringInSlice(desc, views) {
 		return nil
 	}
-	if v, err := g.SetView(desc, coords[0], coords[1], coords[2], coords[3], 0); err != nil {
+	if v, err := g.SetView(desc, coords[0], coords[1], coords[2], coords[3]); err != nil {
 		if err != gocui.ErrUnknownView {
 			return err
 		}
@@ -35,7 +35,7 @@ func generateView(g *gocui.Gui, desc string, fill string, coords []int, editable
 
 // GenerateParamsLayout generates CUI to receive params
 func GenerateParamsLayout(params [][2]string, command string) {
-	g, err := gocui.NewGui(gocui.OutputNormal, false)
+	g, err := gocui.NewGui(gocui.OutputNormal)
 	if err != nil {
 		log.Panicln(err)
 	}

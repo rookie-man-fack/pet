@@ -4,7 +4,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/awesome-gocui/gocui"
+	"github.com/jroimartin/gocui"
 )
 
 var (
@@ -14,7 +14,7 @@ var (
 	CurrentCommand string
 	//FinalCommand is the command after assigning to variables
 	FinalCommand string
-
+	// replace gocui
 	// This matches most encountered patterns
 	// Skips match if there is a whitespace at the end ex. <param='my >
 	// Ignores <, > characters since they're used to match the pattern
